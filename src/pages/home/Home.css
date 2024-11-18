@@ -1,0 +1,175 @@
+.homePage {
+    background: url(/imgs/mainBg.png);
+}
+
+.homePage .container nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 0px;
+}
+
+.mainLogo img {
+    width: 140px;
+}
+
+.homePage .container nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    align-items: center;
+    gap: 20px;
+    justify-content: end;
+}
+
+
+.mainLinks a,
+
+.mainLinks select,
+.mainLinks button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: #F3F3F3;
+    color: black;
+    padding: 8px 20px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    border-radius: 15px;
+    gap: 15px;
+    margin: 0px 20px;
+    cursor: pointer;
+}
+
+.mainLinks a img {
+    width: 20px;
+}
+
+.report {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: white;
+    border: 2px solid #C7C7C7;
+    box-shadow: 0px 2px 10px 0px hsla(0, 0%, 0%, 0.149);
+    border-radius: 20px;
+    margin-bottom: 30px;
+}
+.closeSystem{
+    background-color: #346aff !important;
+    color: white !important;
+}
+
+.report button {
+    color: black;
+    padding: 8px 20px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    border-radius: 15px;
+    cursor: pointer;
+
+}
+
+.report>div {
+    width: 33%;
+    padding: 20px;
+}
+
+.outcome {
+    border-left: 2px solid #C7C7C7;
+    border-right: 2px solid #C7C7C7;
+}
+
+.outcome h2 {
+    color: #FF2626;
+    margin-bottom: 18px;
+}
+
+.income h2,
+.given h2 {
+    color: #2EA821;
+    margin-bottom: 18px;
+}
+
+.report>div h3 {
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+
+
+.allReport {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: white;
+    border: 2px solid #C7C7C7;
+    box-shadow: 0px 2px 10px 0px hsla(0, 0%, 0%, 0.149);
+    border-radius: 20px;
+    margin-bottom: 50px;
+}
+
+.allReport table {
+    width: 100%;
+    border-spacing: 0px 14px;
+}
+
+.allReport table td {
+    padding: 10px 0px;
+    border-left: 2px solid #C7C7C7;
+    border-right: 2px solid #C7C7C7;
+    font-size: 18px;
+}
+
+.allReport table td:nth-child(1) {
+    border-left: none;
+}
+
+.allReport table td:nth-last-child(1) {
+    border-right: none;
+}
+
+.allReport table td a {
+    color: #7798F6;
+    text-decoration: none;
+}
+
+.allReport table td h3 {
+    color: #FF2626;
+}
+
+
+.kirim h3 {
+    color: #2EA821 !important;
+}
+
+
+.inputDate{
+    display: flex;
+    align-items: center;
+    font-size: 14px !important;
+}
+.inputDate{
+    display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        background-color: #F3F3F3;
+        color: black;
+        padding: 8px 20px;
+        border: none;
+        outline: none;
+        font-size: 18px;
+        border-radius: 15px;
+        gap: 15px;
+        margin: 0px 20px;
+        cursor: pointer;
+}
+.inputDate input{
+    background-color: transparent;
+    border: none;
+}

@@ -1,0 +1,116 @@
+.updateWorker {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100vh;
+    background-color: hsla(0, 0%, 0%, 0.307);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.updateWorker .addForm {
+    width: 800px;
+    border-radius: 30px;
+    background-color: white;
+    padding: 20px 40px;
+}
+
+.updateWorker .addForm>button{
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #C3C3C3;
+    margin-bottom: 20px;
+}
+.updateWorker .addForm>button img{
+    width: 14px;
+}
+.updateWorker .addForm form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: start;
+}
+.updateWorker .addForm form div{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 10px;
+}
+
+.updateWorker .addForm form label, .updateWorker .addForm form button, .updateWorker .addForm form select{
+    font-size: 18px;
+    width: 100%;
+    padding: 10px;
+    background-color: #F9F9F9;
+    border: 1px solid #9E9E9E;
+    border-radius: 10px;
+    outline: none;
+    margin-bottom: none;
+    margin-bottom: 10px;
+    
+}
+.updateWorker label input{
+    width: 280px;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+.updateWorker label .workChack{
+    width: 20px;
+}
+.updateWorker label{
+    display: flex;
+    justify-content: space-between;
+}
+
+.updateWorker .addForm h3{
+    margin-bottom: 30px;
+}
+
+.updateWorker .addForm form button{
+    background-color: #7798F6;
+    color: white;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+/* 
+@media (max-width: 800px) {
+    .updateWorker .addForm form input,
+    .updateWorker .addForm form button,
+    .addForm form select {
+      font-size: 14px !important;
+      width: 100%;
+      padding: 8px !important;
+      border-radius: 1px !important;
+      outline: none;
+    }
+    .updateWorker .addForm {
+      width: 80% !important;
+      border-radius: 18px !important;
+    }
+    .updateWorker .addForm label {
+      font-size: 12px !important;
+      display: flex;
+      align-items: center;
+    }
+    .updateWorker .addForm > button {
+      padding: 8px !important;
+      border-radius: 6px !important;
+      margin-bottom: 15px !important;
+    }
+    .updateWorker .addForm > button img {
+      width: 12px !important;
+    }
+} */

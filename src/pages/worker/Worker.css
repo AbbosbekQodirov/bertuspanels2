@@ -1,0 +1,277 @@
+.staff .container nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 0px;
+}
+
+.mainLogo img {
+  width: 140px;
+}
+
+.workers > div > h2 {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+/* .workers>div>h2 span {
+    animation: identifier 1s linear infinite;
+} */
+
+@keyframes identifier {
+  0% {
+    transform: translateY(0px);
+  }
+
+  25% {
+    transform: translateY(-5px);
+  }
+
+  75% {
+    transform: translateY(5px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.staff .container nav ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 40px;
+}
+
+.mainLinks a,
+.mainLinks select,
+.mainLinks button,
+.mainLinks label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background-color: #f3f3f3;
+  color: black;
+  padding: 8px 20px;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  border-radius: 15px;
+  gap: 15px;
+}
+
+.staff .mainLinks .btn {
+  background-color: #7798f6;
+  color: white;
+}
+
+.staff .mainLinks .btn img {
+  width: 18px;
+}
+
+.mainLinks a img {
+  width: 20px;
+}
+
+.controll {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.controll button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background-color: #f3f3f3;
+  color: black;
+  padding: 6px 20px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  border-radius: 15px;
+  gap: 15px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.controll .btn {
+  background-color: #7798f6;
+  color: white;
+}
+
+.controllBtn.active {
+  border: 2px solid #7798f6;
+}
+
+.worker {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 5px 20px;
+  background-color: white;
+  border: 2px solid #c7c7c7;
+  box-shadow: 0px 2px 10px 0px hsla(0, 0%, 0%, 0.149);
+  border-radius: 20px;
+  margin-bottom: 25px !important;
+}
+
+.worker_info {
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 40px;
+  border-left: 2px solid #c7c7c7;
+  border-right: 2px solid #c7c7c7;
+  margin: 10px 0px;
+  width: 220px;
+}
+
+.staff_worker .worker_info:nth-child(1) {
+  border-left: 2px solid #c7c7c7;
+  padding-left: 40px;
+}
+
+.worker_info:nth-last-child(1) {
+  border-right: none !important;
+  padding-left: 70px;
+}
+
+.worker_info:nth-child(7) {
+  border-right: none;
+}
+
+.workerId {
+  width: 26px;
+  height: 26px;
+  border: none;
+  background-color: #ebebeb;
+  font-size: 18px;
+}
+
+.controlWorker {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display: flex;
+  align-items: end !important;
+  justify-content: end !important;
+  border: 2px solid black;
+  gap: 10px;
+  padding: 0px !important;
+  border: none !important;
+  margin: 0px !important;
+}
+
+.controlWorker button {
+  background-color: #7798f6;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.workerEdit img {
+  width: 20px;
+}
+
+.mainLinks label input {
+  font-size: 20px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  width: 200px;
+}
+
+.mainLinks label img {
+  width: 20px;
+}
+
+.unitName {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #7798f6;
+  padding: 0px 4px !important;
+  color: white;
+  padding: 2px 10px !important;
+  border-radius: 4px;
+}
+
+.staff_worker .worker {
+  flex-wrap: wrap;
+}
+
+.worker_attend {
+  flex-direction: column;
+  gap: 20px;
+  width: 100% !important;
+  border: 2px solid black;
+  padding: 20px !important;
+}
+
+.worker_attend table {
+  text-align: center;
+  font-size: 20px;
+}
+
+.worker_attend table td {
+  border-bottom: 2px solid black !important;
+}
+
+.worker_attend table td {
+  padding: 10px 0px;
+}
+
+.loans {
+  width: 300px !important;
+}
+
+@media (max-width: 800px) {
+  .unitName {
+    top: 10px;
+  }
+
+  .worker {
+    flex-wrap: wrap;
+  }
+
+  .worker_attend {
+    gap: 20px !important;
+  }
+
+  .worker_attend table {
+    text-align: center;
+    font-size: 11px;
+  }
+
+  .worker_attend table td {
+    border-bottom: 2px solid black !important;
+  }
+
+  .worker_attend table td {
+    padding: 7px 0px;
+  }
+  .worker_attend h2 {
+    font-size: 14px;
+  }
+  .worker_title_h2 {
+    font-size:16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .loans {
+    width: 100% !important;
+  }
+}

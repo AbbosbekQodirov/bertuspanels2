@@ -1,0 +1,29 @@
+.cashdetail .container nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 0px;
+}
+
+.cashdetail .container nav>div{
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    gap: 30px;
+}
+
+.cashdetail .container nav>div h4 {
+    font-weight: 500;
+}
+
+.cashdetail .container nav>div button{
+    padding: 8px 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: #7798F6;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    font-size: 16px;
+}

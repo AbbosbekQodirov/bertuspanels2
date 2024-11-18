@@ -1,0 +1,131 @@
+.App {
+  background: url(/imgs/mainBg.png);
+  min-height: 100vh;
+}
+
+.detailLogo img{
+  width: 130px;
+}
+
+@media (max-width: 800px) {
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .allReport {
+    padding: 10px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+  }
+
+  .mainLinks {
+    gap: 10px !important;
+  }
+
+  .mainLinks select,
+  .mainLinks a,
+  .mainLinks button {
+    font-size: 12px !important;
+    margin: 0px !important;
+  }
+
+  .mainLinks button img,
+  .mainLinks a img {
+    width: 16px !important;
+  }
+
+  .report {
+    font-size: 10px;
+  }
+
+  .report button {
+    font-size: 10px;
+  }
+
+  .allReport table td {
+    font-size: 10px !important;
+    padding: 2px 0px !important;
+  }
+
+  .report>div {
+    padding: 5px !important;
+  }
+
+  .report button {
+    padding: 2px 4px !important;
+  }
+
+  .detailTable .container td {
+    font-size: 10px;
+    padding: 0px;
+  }
+
+  .detailTable .container th {
+    font-size: 10px;
+    padding: 0px;
+  }
+
+  nav h4 {
+    font-size: 14px;
+    margin-top: 20px;
+    width: 170px;
+  }
+
+  .detailLogo a img {
+    width: 100px;
+  }
+
+  nav button {
+    font-size: 12px !important;
+  }
+
+  .worker {
+    font-size: 12px;
+    padding-bottom: 50px;
+  }
+
+  .mainLinks {
+    flex-wrap: wrap;
+
+  }
+
+  .mainLinks button,
+  .mainLinks input {
+    font-size: 12px !important;
+  }
+
+  .controll {
+    font-size: 12px !important;
+    flex-wrap: wrap;
+  }
+
+  .controll button {
+    font-size: 12px !important;
+  }
+
+  .addForm {
+    width: 90% !important;
+  }
+
+  .addForm input {
+    width: 100% !important;
+  }
+
+  .addForm form div {
+    width: 100% !important;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+
+  .worker_info {
+    width: 100%;
+  }
+  
+  .controll .btn img{
+    width: 10px;
+  }
+}

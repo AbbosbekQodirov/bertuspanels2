@@ -1,0 +1,84 @@
+.addreport {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  background-color: hsla(0, 0%, 0%, 0.307);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addreport .addForm {
+  width: 400px;
+  border-radius: 30px;
+  background-color: white;
+  padding: 20px;
+}
+
+.addreport .addForm > button {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #c3c3c3;
+  margin-bottom: 20px;
+}
+.addreport .addForm > button img {
+  width: 14px;
+}
+.addreport .addForm form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.addreport .addForm form input,
+.addreport .addForm form button,
+.addForm form select {
+  font-size: 18px;
+  width: 100%;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #f9f9f9;
+  border-radius: 10px;
+  outline: none;
+}
+
+.addreport .addForm form button {
+  background-color: #7798f6;
+  color: white;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .addreport .addForm form input,
+  .addreport .addForm form button,
+  .addForm form select {
+    font-size: 14px !important;
+    width: 100%;
+    padding: 8px !important;
+    border-radius: 1px !important;
+    outline: none;
+  }
+  .addreport .addForm {
+    width: 80% !important;
+    border-radius: 18px !important;
+  }
+  .addreport .addForm > button {
+    padding: 8px !important;
+    border-radius: 6px !important;
+    margin-bottom: 15px !important;
+  }
+  .addreport .addForm > button img {
+    width: 12px !important;
+  }
+}
