@@ -71,7 +71,7 @@ function AddReport({ setShowAdd }) {
             <option value="sandwich">Сендвич</option>
             <option value="pena">Пенопласт</option>
             <option value="other">бошқа...</option>
-            '', '' or ''",
+            
           </select>
 
           <input

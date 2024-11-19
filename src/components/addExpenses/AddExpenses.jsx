@@ -59,10 +59,11 @@ function AddExpenses({ addtype, setShowAdd }) {
             name=""
             id=""
           >
-            <option value="usual">усуал</option>
-            <option value="toll">толл</option>
-            <option value="food">фоод</option>
-            <option value="other">отҳер</option>
+               
+            <option value="usual">Одатий</option>
+            <option value="toll">Йўл хаққи</option>
+            <option value="food">Озиқ-овқат</option>
+            <option value="other">Бошқа</option>
           </select>
 
           <input
