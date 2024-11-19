@@ -7,7 +7,7 @@ import { Link, useParams } from "react-router-dom";
 import { getToken } from "../../service/token";
 import { baseUrl } from "../../config";
 import AddExpenses from "../../components/addExpenses/AddExpenses";
-function OutCashDetail() {
+function OutCashDetail({ startDate, endDate }) {
   const [showAdd, setShowAdd] = useState(false);
   const [outcomeData, setOutcomeData] = useState(null);
   const { type } = useParams();
@@ -25,7 +25,7 @@ function OutCashDetail() {
     };
 
     fetch(
-      `${baseUrl}/expenses/get?ident=0&_type=${type}&page=1&limit=25`,
+      `${baseUrl}/expenses/get?ident=0&_type=${type}&start_date=${startDate}&end_date=${endDate}&page=1&limit=25`,
       requestOptions
     )
       .then((response) => response.json())

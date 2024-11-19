@@ -9,7 +9,15 @@ import AddExpenses from "../../components/addExpenses/AddExpenses";
 import SetCurrencies from "../../components/setcurrencies/SetCurrencies";
 import Print from "../../components/print/Print";
 
-function Home({ inSystem, setInSystem, getCourse }) {
+function Home({
+  startDate,
+  setStartDate,
+  endDate,
+  setEndDate,
+  inSystem,
+  setInSystem,
+  getCourse,
+}) {
   const [incomeSandwich, setIncomeSandwich] = useState(null);
   const [incomePena, setIncomePena] = useState(null);
   const [incomeOther, setIncomeOther] = useState(null);
@@ -28,20 +36,6 @@ function Home({ inSystem, setInSystem, getCourse }) {
   const [showAddEx, setShowAddEx] = useState(false);
   const [showCurrencies, setShowCurrencies] = useState(false);
   const [showPrint, setShowPrint] = useState(false);
-
-  function getDate(offset = 0) {
-    const today = new Date();
-    today.setDate(today.getDate() + offset); // Kunni offsetga qarab o'zgartiramiz
-
-    const year = today.getFullYear();
-    const month = String(today.getMonth() + 1).padStart(2, "0"); // Oylarni 1 dan boshlab hisoblaymiz
-    const day = String(today.getDate()).padStart(2, "0");
-
-    return `${year}-${month}-${day}`;
-  }
-
-  const [startDate, setStartDate] = useState(getDate());
-  const [endDate, setEndDate] = useState(getDate(1));
 
   const getAllIOutcome = () => {
     const myHeaders = new Headers();
@@ -265,10 +259,7 @@ function Home({ inSystem, setInSystem, getCourse }) {
     getAllIncome();
     getAllIOutcome();
 
-
-
     getCourse();
-
   }, [showAdd, showAddEx, showCurrencies, startDate, endDate]);
 
   console.log(outcomeAdvance);

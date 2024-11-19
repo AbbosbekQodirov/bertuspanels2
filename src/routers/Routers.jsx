@@ -43,6 +43,20 @@ function Routers() {
     }
   }, [inSystem]);
 
+  function getDate(offset = 0) {
+    const today = new Date();
+    today.setDate(today.getDate() + offset); // Kunni offsetga qarab o'zgartiramiz
+
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, "0"); // Oylarni 1 dan boshlab hisoblaymiz
+    const day = String(today.getDate()).padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
+  }
+
+  const [startDate, setStartDate] = useState(getDate());
+  const [endDate, setEndDate] = useState(getDate(1));
+
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
@@ -50,14 +64,24 @@ function Routers() {
         path="/"
         element={
           <Home
+            startDate={startDate}
+            setStartDate={setStartDate}
+            endDate={endDate}
+            setEndDate={setEndDate}
             inSystem={inSystem}
             setInSystem={setInSystem}
             getCourse={getCourse}
           />
         }
       />
-      <Route path="/incomedetail/:type" element={<CashDetail />} />
-      <Route path="/outcomedetail/:type" element={<OutCashDetail />} />
+      <Route
+        path="/incomedetail/:type"
+        element={<CashDetail startDate={startDate} endDate={endDate} />}
+      />
+      <Route
+        path="/outcomedetail/:type"
+        element={<OutCashDetail startDate={startDate} endDate={endDate} />}
+      />
       <Route path="/staff" element={<Staff />} />
       <Route path="/worker/:id" element={<Worker />} />
     </Routes>

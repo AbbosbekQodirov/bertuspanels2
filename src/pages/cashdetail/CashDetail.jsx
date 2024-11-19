@@ -7,7 +7,7 @@ import { Link, useParams } from "react-router-dom";
 import { getRole, getToken } from "../../service/token";
 import { baseUrl } from "../../config";
 import IncomeTable from "../../components/incomeDetailTable/IncomeTable";
-function CashDetail() {
+function CashDetail({ startDate, endDate }) {
   const [showAdd, setShowAdd] = useState(false);
   const [incomeData, setIncomeData] = useState(null);
   const { type } = useParams();
@@ -23,7 +23,7 @@ function CashDetail() {
     };
 
     fetch(
-      `${baseUrl}/incomes/get?ident=0&_type=${type}&page=1&limit=25`,
+      `${baseUrl}/incomes/get?ident=0&_type=${type}&start_date=${startDate}&end_date=${endDate}&page=1&limit=25`,
       requestOptions
     )
       .then((response) => response.json())
@@ -36,7 +36,7 @@ function CashDetail() {
     getDetailIncome();
   });
   console.log(incomeData);
-  
+
   return (
     <div className="cashdetail">
       {showAdd && <AddReport setShowAdd={setShowAdd} />}

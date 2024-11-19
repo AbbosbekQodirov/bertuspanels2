@@ -81,6 +81,28 @@ function Print({ setShowPrint }) {
       .catch((error) => console.error(error));
   };
 
+  const updateReport =()=>{
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${getToken()}`);
+
+    const requestOptions = {
+      method: "PUT",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch(`${baseUrl}/${reportType}/update`, requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.detail) {  
+          toast(result.detail);
+        } else {
+          toast("Ҳисобот тасдиқланди");
+        }
+      })
+      .catch((error) => console.error(error));
+  }
+
   const confirmation = ()=>{
     const myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${getToken()}`);
@@ -129,6 +151,9 @@ function Print({ setShowPrint }) {
           </select>
           <button type="button" onClick={createReport}>
             Ҳисоботни яратиш
+          </button>
+          <button type="button" onClick={updateReport}>
+            Ҳисоботни янгилаш
           </button>
           <button type="button" onClick={confirmation}>
             Ҳисоботни Тасдиқлаш
