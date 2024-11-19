@@ -48,7 +48,7 @@ function CashDetail({ startDate, endDate }) {
             </Link>
           </div>
           <div>
-            <h4>{`Кирим : ${type} жами : ${incomeData?.total_sum} UZS /  ${incomeData?.total_dollar} $`}</h4>
+            <h4>{`Кирим : ${type} жами : ${incomeData?.total_sum} УЗС /  ${incomeData?.total_dollar} УСД`}</h4>
             <button
               disabled={getRole() == "watcher" ? true : false}
               onClick={() => {

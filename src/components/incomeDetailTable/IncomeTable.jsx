@@ -10,7 +10,7 @@ function IncomeTable({data, setShowAdd }) {
         <table>
           <thead>
             <tr>
-              <th>Но</th>
+              <th>N</th>
               <th>Мижоз исми</th>
               <th>Маҳсулот</th>
               <th>Ўзбек сўми</th>

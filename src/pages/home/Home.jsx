@@ -380,9 +380,9 @@ function Home({
         </nav>
         <div className="report">
           <div className="income">
-            <h2>Кирим</h2>
+            <h2>КИРИМ</h2>
             <h3>{allIncomeSumm} УЗС</h3>
-            <h3>{allIncomeDollar} $</h3>
+            <h3>{allIncomeDollar} УСД</h3>
             <button
               onClick={() => {
                 setShowAddEx(false);
@@ -396,7 +396,7 @@ function Home({
           <div className="outcome">
             <h2>ЧИҚИМ</h2>
             <h3>{allOutcomeSumm + outcomeAdvance?.total_sum} УЗС</h3>
-            <h3>{allOutcomeDollar + outcomeAdvance?.total_dollar} $</h3>
+            <h3>{allOutcomeDollar + outcomeAdvance?.total_dollar} УСД</h3>
             <button
               disabled={getRole() == "watcher" ? true : false}
               onClick={() => {
@@ -411,13 +411,13 @@ function Home({
             <h2>ДАРОМАД</h2>
             <h3>
               {allIncomeSumm - allOutcomeSumm - outcomeAdvance?.total_sum}
-              УЗС
+                УЗС
             </h3>
             <h3>
               {allIncomeDollar -
                 allOutcomeDollar -
                 outcomeAdvance?.total_dollar}{" "}
-              $
+              УСД
             </h3>
           </div>
         </div>
@@ -431,7 +431,7 @@ function Home({
                   </td>
                   <td>Сендвич</td>
                   <td>{incomeSandwich.total_sum} УЗС</td>
-                  <td>{incomeSandwich.total_dollar} $</td>
+                  <td>{incomeSandwich.total_dollar} УСД</td>
                   <td>
                     <Link to={`/incomedetail/sandwich`}>Батафсил малумот</Link>
                   </td>
@@ -444,7 +444,7 @@ function Home({
                   </td>
                   <td>Пена</td>
                   <td>{incomePena.total_sum} УЗС</td>
-                  <td>{incomePena.total_dollar} $</td>
+                  <td>{incomePena.total_dollar} УСД</td>
                   <td>
                     <Link to={`/incomedetail/pena`}>Батафсил малумот</Link>
                   </td>
@@ -457,7 +457,7 @@ function Home({
                   </td>
                   <td>Бошқалар</td>
                   <td>{incomeOther.total_sum} УЗС</td>
-                  <td>{incomeOther.total_dollar} $</td>
+                  <td>{incomeOther.total_dollar} УСД</td>
                   <td>
                     <Link to={`/incomedetail/other`}>Батафсил малумот</Link>
                   </td>
@@ -470,7 +470,7 @@ function Home({
                   </td>
                   <td>Одатий</td>
                   <td>{outcomeUsual.total_sum} УЗС</td>
-                  <td>{outcomeUsual.total_dollar} $</td>
+                  <td>{outcomeUsual.total_dollar} УСД</td>
                   <td>
                     <Link to={`/outcomedetail/usual`}>Батафсил малумот</Link>
                   </td>
@@ -483,7 +483,7 @@ function Home({
                   </td>
                   <td>Йўл ҳаққи</td>
                   <td>{outcomeToll.total_sum} УЗС</td>
-                  <td>{outcomeToll.total_dollar} $</td>
+                  <td>{outcomeToll.total_dollar} УСД</td>
                   <td>
                     <Link to={`/outcomedetail/toll`}>Батафсил малумот</Link>
                   </td>
@@ -496,7 +496,7 @@ function Home({
                   </td>
                   <td>Озиқ Овқат</td>
                   <td>{outcomeFood.total_sum} УЗС</td>
-                  <td>{outcomeFood.total_dollar} $</td>
+                  <td>{outcomeFood.total_dollar} УСД</td>
                   <td>
                     <Link to={`/outcomedetail/food`}>Батафсил малумот</Link>
                   </td>
@@ -509,7 +509,7 @@ function Home({
                   </td>
                   <td>Бошқалар</td>
                   <td>{outcomeOther.total_sum} УЗС</td>
-                  <td>{outcomeOther.total_dollar} $</td>
+                  <td>{outcomeOther.total_dollar} УСД</td>
                   <td>
                     <Link to={`/outcomedetail/other`}>Батафсил малумот</Link>
                   </td>
@@ -522,7 +522,7 @@ function Home({
                   </td>
                   <td>Aванс</td>
                   <td>{outcomeAdvance?.total_sum} УЗС</td>
-                  <td>{outcomeAdvance?.total_dollar} $</td>
+                  <td>{outcomeAdvance?.total_dollar} УСД</td>
                   <td>
                     <Link to={`/staff`}>Батафсил малумот</Link>
                   </td>
