@@ -62,11 +62,11 @@ function AddWorker({ changedData, setChangedData, setShowAddWorker }) {
               name=""
               id=""
             >
-              <option value="office">оффиcе</option>
-              <option value="sandwich">сандшич</option>
-              <option value="peno_cutting">пено_cуттинг</option>
-              <option value="peno_making">пено_макинг</option>
-              <option value="other">отҳер</option>
+              <option value="office">Офис</option>
+              <option value="sandwich">Сендвич</option>
+              <option value="peno_cutting">Пенопласт кесиш</option>
+              <option value="peno_making">Пенопласт ясаш</option>
+              <option value="other">Бошқа</option>
             </select>
             {/* <label htmlFor="">
               {" "}
