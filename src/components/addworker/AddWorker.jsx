@@ -41,7 +41,6 @@ function AddWorker({ changedData, setChangedData, setShowAddWorker }) {
     e.preventDefault();
     addData();
   };
-  console.log(part);
   
   return (
     <div className="addWorker">

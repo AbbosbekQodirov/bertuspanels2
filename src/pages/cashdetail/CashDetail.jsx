@@ -35,7 +35,6 @@ function CashDetail({ startDate, endDate }) {
   useEffect(() => {
     getDetailIncome();
   });
-  console.log(incomeData);
 
   return (
     <div className="cashdetail">
@@ -48,7 +47,14 @@ function CashDetail({ startDate, endDate }) {
             </Link>
           </div>
           <div>
-            <h4>{`Кирим : ${type} жами : ${incomeData?.total_sum} УЗС /  ${incomeData?.total_dollar} УСД`}</h4>
+            <h4>{`Кирим : ${type} жами : ${incomeData?.total_sum
+              ?.toString()
+              .replace(
+                /\B(?=(\d{3})+(?!\d))/g,
+                " "
+              )} УЗС /  ${incomeData?.total_dollar
+              ?.toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} УСД`}</h4>
             <button
               disabled={getRole() == "watcher" ? true : false}
               onClick={() => {

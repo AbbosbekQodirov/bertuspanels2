@@ -41,7 +41,6 @@ function Worker() {
     fetch(`${baseUrl}/workers/get?ident=${id}&page=1&limit=25`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
 
         setWorker(result.data);
       })
@@ -53,7 +52,6 @@ function Worker() {
   }, [changedData]);
 
   const changeFormat = (dateStr) => {
-    console.log(dateStr);
 
     // Sanani yaratish
     if (dateStr != null) {
@@ -157,14 +155,14 @@ function Worker() {
                       <p>{item.part}</p>
                     </div>
                   </div>
-                  <div className="worker_info">
+                  {/* <div className="worker_info">
                     <div>
                       <p>
                         <b>Олинган Ойликлар:</b>
                       </p>
                       <p>{item.balance}</p>
                     </div>
-                  </div>
+                  </div> */}
                   <div className="worker_info loans ">
                     <div>
                       <p>

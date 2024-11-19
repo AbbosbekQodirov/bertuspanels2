@@ -41,7 +41,6 @@ function Login() {
           setPassword("");
           toast.error("Логин ёки парол хато");
         }
-        console.log(result);
       })
       .catch((error) => console.error(error));
   };

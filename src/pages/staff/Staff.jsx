@@ -18,7 +18,6 @@ function Staff() {
   const [showLoans, setShowLoans] = useState(false);
   const [showGiveSalary, setShowGiveSalary] = useState(false);
 
-  console.log(workers);
 
   const [changedData, setChangedData] = useState(false);
 
@@ -47,7 +46,6 @@ function Staff() {
     )
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
 
         setWorkers(result.data);
       })
@@ -287,7 +285,6 @@ function Staff() {
 
         <div className="workers">
           {workers?.map((item, index) => {
-            console.log(item);
 
             return (
               <div className="worker">

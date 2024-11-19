@@ -262,7 +262,6 @@ function Home({
     getCourse();
   }, [showAdd, showAddEx, showCurrencies, startDate, endDate]);
 
-  console.log(outcomeAdvance);
 
   return (
     <div className="homePage">
@@ -381,8 +380,16 @@ function Home({
         <div className="report">
           <div className="income">
             <h2>КИРИМ</h2>
-            <h3>{allIncomeSumm} УЗС</h3>
-            <h3>{allIncomeDollar} УСД</h3>
+            <h3>
+              {allIncomeSumm?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
+              УЗС
+            </h3>
+            <h3>
+              {allIncomeDollar
+                ?.toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
+              УСД
+            </h3>
             <button
               onClick={() => {
                 setShowAddEx(false);
@@ -395,8 +402,18 @@ function Home({
           </div>
           <div className="outcome">
             <h2>ЧИҚИМ</h2>
-            <h3>{allOutcomeSumm + outcomeAdvance?.total_sum} УЗС</h3>
-            <h3>{allOutcomeDollar + outcomeAdvance?.total_dollar} УСД</h3>
+            <h3>
+              {(allOutcomeSumm + outcomeAdvance?.total_sum)
+                ?.toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
+              УЗС
+            </h3>
+            <h3>
+              {(allOutcomeDollar + outcomeAdvance?.total_dollar)
+                ?.toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
+              УСД
+            </h3>
             <button
               disabled={getRole() == "watcher" ? true : false}
               onClick={() => {
@@ -410,13 +427,19 @@ function Home({
           <div className="given">
             <h2>ДАРОМАД</h2>
             <h3>
-              {allIncomeSumm - allOutcomeSumm - outcomeAdvance?.total_sum+" "}
-                УЗС
+              {(allIncomeSumm - allOutcomeSumm - outcomeAdvance?.total_sum)
+                ?.toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
+              УЗС
             </h3>
             <h3>
-              {allIncomeDollar -
+              {(
+                allIncomeDollar -
                 allOutcomeDollar -
-                outcomeAdvance?.total_dollar}{" "}
+                outcomeAdvance?.total_dollar
+              )
+                ?.toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
               УСД
             </h3>
           </div>
@@ -430,8 +453,10 @@ function Home({
                     <h3>КИРИМ</h3>
                   </td>
                   <td>Сендвич</td>
-                  <td>{incomeSandwich.total_sum} УЗС</td>
-                  <td>{incomeSandwich.total_dollar} УСД</td>
+                  <td>{incomeSandwich.total_sum?.toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} УЗС</td>
+                  <td>{incomeSandwich.total_dollar?.toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} УСД</td>
                   <td>
                     <Link to={`/incomedetail/sandwich`}>Батафсил малумот</Link>
                   </td>
@@ -443,8 +468,10 @@ function Home({
                     <h3>КИРИМ</h3>
                   </td>
                   <td>Пена</td>
-                  <td>{incomePena.total_sum} УЗС</td>
-                  <td>{incomePena.total_dollar} УСД</td>
+                  <td>{incomePena.total_sum?.toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} УЗС</td>
+                  <td>{incomePena.total_dollar?.toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} УСД</td>
                   <td>
                     <Link to={`/incomedetail/pena`}>Батафсил малумот</Link>
                   </td>
@@ -456,8 +483,10 @@ function Home({
                     <h3>КИРИМ</h3>
                   </td>
                   <td>Бошқалар</td>
-                  <td>{incomeOther.total_sum} УЗС</td>
-                  <td>{incomeOther.total_dollar} УСД</td>
+                  <td>{incomeOther.total_sum?.toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} УЗС</td>
+                  <td>{incomeOther.total_dollar?.toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} УСД</td>
                   <td>
                     <Link to={`/incomedetail/other`}>Батафсил малумот</Link>
                   </td>
@@ -469,8 +498,10 @@ function Home({
                     <h3>ЧИҚИМ</h3>
                   </td>
                   <td>Одатий</td>
-                  <td>{outcomeUsual.total_sum} УЗС</td>
-                  <td>{outcomeUsual.total_dollar} УСД</td>
+                  <td>{outcomeUsual.total_sum?.toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} УЗС</td>
+                  <td>{outcomeUsual.total_dollar?.toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} УСД</td>
                   <td>
                     <Link to={`/outcomedetail/usual`}>Батафсил малумот</Link>
                   </td>
@@ -482,8 +513,10 @@ function Home({
                     <h3>ЧИҚИМ</h3>
                   </td>
                   <td>Йўл ҳаққи</td>
-                  <td>{outcomeToll.total_sum} УЗС</td>
-                  <td>{outcomeToll.total_dollar} УСД</td>
+                  <td>{outcomeToll.total_sum?.toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} УЗС</td>
+                  <td>{outcomeToll.total_dollar?.toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} УСД</td>
                   <td>
                     <Link to={`/outcomedetail/toll`}>Батафсил малумот</Link>
                   </td>
@@ -495,8 +528,10 @@ function Home({
                     <h3>ЧИҚИМ</h3>
                   </td>
                   <td>Озиқ Овқат</td>
-                  <td>{outcomeFood.total_sum} УЗС</td>
-                  <td>{outcomeFood.total_dollar} УСД</td>
+                  <td>{outcomeFood.total_sum?.toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} УЗС</td>
+                  <td>{outcomeFood.total_dollar?.toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} УСД</td>
                   <td>
                     <Link to={`/outcomedetail/food`}>Батафсил малумот</Link>
                   </td>
@@ -508,8 +543,10 @@ function Home({
                     <h3>ЧИҚИМ</h3>
                   </td>
                   <td>Бошқалар</td>
-                  <td>{outcomeOther.total_sum} УЗС</td>
-                  <td>{outcomeOther.total_dollar} УСД</td>
+                  <td>{outcomeOther.total_sum?.toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} УЗС</td>
+                  <td>{outcomeOther.total_dollar?.toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} УСД</td>
                   <td>
                     <Link to={`/outcomedetail/other`}>Батафсил малумот</Link>
                   </td>
@@ -521,8 +558,10 @@ function Home({
                     <h3>ЧИҚИМ</h3>
                   </td>
                   <td>Aванс</td>
-                  <td>{outcomeAdvance?.total_sum} УЗС</td>
-                  <td>{outcomeAdvance?.total_dollar} УСД</td>
+                  <td>{outcomeAdvance?.total_sum?.toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} УЗС</td>
+                  <td>{outcomeAdvance?.total_dollar?.toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} УСД</td>
                   <td>
                     <Link to={`/staff`}>Батафсил малумот</Link>
                   </td>

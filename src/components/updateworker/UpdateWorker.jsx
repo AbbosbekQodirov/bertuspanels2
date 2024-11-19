@@ -70,7 +70,6 @@ function UpdateWorker({
     e.preventDefault();
     updateData();
   };
-  console.log(fixed);
   
 
   useEffect(() => {

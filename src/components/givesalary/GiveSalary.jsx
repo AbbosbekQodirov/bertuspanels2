@@ -32,7 +32,6 @@ function GiveSalary({ id, setShowGiveSalary, changedData, setChangedData }) {
     fetch(`${baseUrl}/salaries/create`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
         setChangedData(!changedData)
         toast.success("Амалиёт муваффақиятли амалга оширилди");
         setShowGiveSalary(false);
@@ -69,12 +68,13 @@ function GiveSalary({ id, setShowGiveSalary, changedData, setChangedData }) {
               id=""
             >
               <option value="kpi">кпи</option>
-              <option value="work_day_bonus">шорк_дай_бонус</option>
+              <option value="work_day_bonus">Кунлик бонус</option>
               <option value="extra_bonus">ехтра_бонус</option>
               <option value="penalty">пеналтй</option>
               <option value="pension">пенсион</option>
               <option value="advance">адванcе</option>
               <option value="absolute">абсолуте</option>
+              <option value="loan">Қарзини олиш</option>
             </select>
             {/* <label htmlFor="">
               {" "}
@@ -108,7 +108,6 @@ function GiveSalary({ id, setShowGiveSalary, changedData, setChangedData }) {
                 placeholder="Пул миқдори:"
                 type="text"
               />{" "}
-              УЗС
             </label>
             <select
               onChange={(e) => {

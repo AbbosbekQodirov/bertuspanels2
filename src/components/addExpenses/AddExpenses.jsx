@@ -34,7 +34,6 @@ function AddExpenses({ addtype, setShowAdd }) {
     fetch(`${baseUrl}/expenses/create`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
         toast.success("Амалиёт муваффақиятли амалга оширилди");
         setShowAdd(false);
       })

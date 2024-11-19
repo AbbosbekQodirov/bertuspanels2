@@ -34,7 +34,6 @@ function AddReport({ setShowAdd }) {
     fetch(`${baseUrl}/incomes/create`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
         toast.success("Амалиёт муваффақиятли амалга оширилди");
         setShowAdd(false);
       })

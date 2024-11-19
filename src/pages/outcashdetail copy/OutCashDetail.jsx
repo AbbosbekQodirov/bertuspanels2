@@ -48,7 +48,14 @@ function OutCashDetail({ startDate, endDate }) {
             </Link>
           </div>
           <div>
-            <h4>{`ЧИҚИМ : ${type} жами : ${outcomeData?.total_sum} УЗС /  ${outcomeData?.total_dollar} УСД`}</h4>
+            <h4>{`ЧИҚИМ : ${type} жами : ${outcomeData?.total_sum
+              ?.toString()
+              .replace(
+                /\B(?=(\d{3})+(?!\d))/g,
+                " "
+              )} УЗС /  ${outcomeData?.total_dollar
+              ?.toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} УСД`}</h4>
             <button
               onClick={() => {
                 setShowAdd(true);

@@ -21,8 +21,22 @@ function DetailTable({ data, setShowAdd }) {
                 <tr>
                   <td>{index + 1}</td>
                   <td>{item.type}</td>
-                  <td>{item.currency == "sum" ? item.money : 0} УЗС</td>
-                  <td>{item.currency == "dollar" ? item.money : 0}$</td>
+                  <td>
+                    {item.currency == "sum"
+                      ? item.money
+                          ?.toString()
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+                      : 0}{" "}
+                    УЗС
+                  </td>
+                  <td>
+                    {item.currency == "dollar"
+                      ? item.money
+                          ?.toString()
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+                      : 0}
+                    $
+                  </td>
                   <td>{item.comment}</td>
                   <td></td>
                 </tr>

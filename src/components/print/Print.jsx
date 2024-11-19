@@ -39,7 +39,6 @@ function Print({ setShowPrint }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const apiLink = `${baseUrl}/${reportType}/get?ident=0&page=1&limit=25`;
-    console.log(apiLink);
 
     const myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${getToken()}`);

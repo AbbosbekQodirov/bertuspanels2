@@ -26,7 +26,6 @@ function SetLoans({ id, setShowLoans, changedData, setChangedData }) {
     fetch(`${baseUrl}/loans/create`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
         setShowLoans(false);
         setChangedData(!changedData)
         toast.success("Амалиёт Мувофақиятли бажарилди");

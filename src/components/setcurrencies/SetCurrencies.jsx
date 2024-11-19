@@ -25,7 +25,6 @@ function  SetCurrencies({ getCourse, setShowCurrencies }) {
     fetch(`${baseUrl}/currencies/create`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
 
         toast.success("Амалиёт муваффақиятли амалга оширилди");
         getCourse();
