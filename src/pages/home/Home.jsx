@@ -410,7 +410,7 @@ function Home({
           <div className="given">
             <h2>ДАРОМАД</h2>
             <h3>
-              {allIncomeSumm - allOutcomeSumm - outcomeAdvance?.total_sum }
+              {allIncomeSumm - allOutcomeSumm - outcomeAdvance?.total_sum+" "}
                 УЗС
             </h3>
             <h3>
