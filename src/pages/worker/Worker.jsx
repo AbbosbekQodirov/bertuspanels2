@@ -135,7 +135,13 @@ function Worker() {
                       <p>
                         <b>Фикса маоши:</b>{" "}
                       </p>
-                      <p> {item.fixed}сўм</p>
+                      <p>
+                        {" "}
+                        {item.fixed
+                          ?.toString()
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
+                        сўм
+                      </p>
                     </div>
                   </div>
 
@@ -144,7 +150,11 @@ function Worker() {
                       <p>
                         <b>Баланси:</b>
                       </p>
-                      <p>{item.balance}</p>
+                      <p>
+                        {item.balance
+                          ?.toString()
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
+                      </p>
                     </div>
                   </div>
                   <div className="worker_info">
@@ -172,10 +182,16 @@ function Worker() {
                       {item.loans[0]?.total ? (
                         <>
                           <p>
-                            <b>Қиймати:</b> {item.loans[0]?.total}
+                            <b>Қиймати:</b>{" "}
+                            {item.loans[0]?.total
+                              ?.toString()
+                              .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
                           </p>
                           <p>
-                            <b>Қолган қарз:</b> {item.loans[0]?.residual}
+                            <b>Қолган қарз:</b>{" "}
+                            {item.loans[0]?.residual
+                              ?.toString()
+                              .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
                           </p>
                           <p>
                             <b>Санаси:</b>{" "}
@@ -247,8 +263,14 @@ function Worker() {
                             return (
                               <tr>
                                 <td>{salary.type}</td>
-                                <td>{salary.money}</td>
-                                <td>{salary.currency}</td>
+                                <td>
+                                  {salary.money
+                                    ?.toString()
+                                    .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}
+                                </td>
+                                <td>
+                                  {salary.currency == "sum" ? "Сум" : "Доллар"}
+                                </td>
                                 <td>
                                   {salary.comment.length > 0
                                     ? salary.comment

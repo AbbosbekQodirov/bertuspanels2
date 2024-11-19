@@ -304,14 +304,25 @@ function Staff() {
                 <div className="worker_info">
                   <div>
                     <p>Фикса маоши: </p>
-                    <p> {item.fixed} сўм</p>
+                    <p>
+                      {" "}
+                      {item.fixed
+                        ?.toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
+                      сўм
+                    </p>
                   </div>
                 </div>
 
                 <div className="worker_info">
                   <div>
                     <p>Баланси:</p>
-                    <p>{item.balance}</p>
+                    <p>
+                      {item.balance
+                        ?.toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
+                      
+                    </p>
                   </div>
                 </div>
 

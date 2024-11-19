@@ -67,12 +67,13 @@ function GiveSalary({ id, setShowGiveSalary, changedData, setChangedData }) {
               name=""
               id=""
             >
+               
               <option value="kpi">кпи</option>
               <option value="work_day_bonus">Кунлик бонус</option>
               <option value="extra_bonus">ехтра_бонус</option>
-              <option value="penalty">пеналтй</option>
-              <option value="pension">пенсион</option>
-              <option value="advance">адванcе</option>
+              <option value="penalty">Жарима</option>
+              <option value="pension">пенсия</option>
+              <option value="advance">аванс</option>
               <option value="absolute">абсолуте</option>
               <option value="loan">Қарзини олиш</option>
             </select>

@@ -97,16 +97,18 @@ function UpdateWorker({
               name=""
               id=""
             >
-              <option value="office">оффиcе</option>
-              <option value="sandwich">сандшич</option>
-              <option value="peno_cutting">пено_cуттинг</option>
-              <option value="peno_making">пено_макинг</option>
-              <option value="other">отҳер</option>
+                  
+              <option value="office">Офис</option>
+              <option value="sandwich">Сендвич</option>
+              <option value="peno_cutting">Пенопласт кесиш</option>
+              <option value="peno_making">Пенопласт ясаш</option>
+              <option value="other">Бошқа</option>
             </select>
             <h4>Исм Фамиляси</h4>
             <label htmlFor="">
               {" "}
-              <input required 
+              <input
+                required
                 value={name}
                 onChange={(e) => {
                   setname(e.target.value);
@@ -117,7 +119,8 @@ function UpdateWorker({
             </label>
             <h4>Фикса ойлик</h4>
             <label htmlFor="">
-              <input required 
+              <input
+                required
                 value={fixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}
                 onChange={(e) => {
                   setfixed(e.target.value.toString().replaceAll(" ", ""));
@@ -129,7 +132,8 @@ function UpdateWorker({
             </label>
             <h4>Бу ой ишлади</h4>
             <label htmlFor="">
-              <input required 
+              <input
+                required
                 value={workdays}
                 onChange={(e) => {
                   setworkdays(e.target.value);
