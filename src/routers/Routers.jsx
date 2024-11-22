@@ -9,6 +9,7 @@ import OutCashDetail from "../pages/outcashdetail copy/OutCashDetail";
 import { baseUrl } from "../config";
 import Worker from "../pages/worker/Worker";
 import Staff from "../pages/staff/Staff";
+import Chop from "../pages/chop/Chop";
 
 function Routers() {
   const [inSystem, setInSystem] = useState(false);
@@ -84,6 +85,7 @@ function Routers() {
       />
       <Route path="/staff" element={<Staff />} />
       <Route path="/worker/:id" element={<Worker />} />
+      <Route path="/chop" element={<Chop/>} />
     </Routes>
   );
 }

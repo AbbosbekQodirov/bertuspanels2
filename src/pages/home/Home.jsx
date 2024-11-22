@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Home.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getRole, getToken } from "../../service/token";
 import { baseUrl } from "../../config";
 
@@ -262,6 +262,7 @@ function Home({
     getCourse();
   }, [showAdd, showAddEx, showCurrencies, startDate, endDate]);
 
+  const navigate = useNavigate()
 
   return (
     <div className="homePage">
@@ -283,7 +284,8 @@ function Home({
             <li>
               <button
                 onClick={() => {
-                  setShowPrint(true);
+                  navigate("/chop")
+                  // setShowPrint(true);
                   // downloadExcel(income);
                 }}
               >
