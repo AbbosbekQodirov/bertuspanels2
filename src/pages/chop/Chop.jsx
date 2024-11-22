@@ -124,9 +124,11 @@ console.log(allData);
                 })}
             </tbody>
             <thead>
-              <th colSpan={5}>
-                <h2>Boshqa</h2>
-              </th>
+              <tr>
+                <th colSpan={5}>
+                  <h2>Boshqa</h2>
+                </th>
+              </tr>
             </thead>
             <tbody>
               {allData?.incomes
@@ -187,9 +189,11 @@ console.log(allData);
               </tr>
             </tbody>
             <thead>
-              <th colSpan={5}>
-                <h2>Doimiy xarajatlar</h2>
-              </th>
+              <tr>
+                <th colSpan={5}>
+                  <h2>Doimiy xarajatlar</h2>
+                </th>
+              </tr>
               <tr>
                 <th>No</th>
                 <th>Mijoz ismi</th>
@@ -220,9 +224,11 @@ console.log(allData);
               </tr>
             </tbody>
             <thead>
-              <th colSpan={5}>
-                <h2>Yo'l xaqi uchun xarajatlar</h2>
-              </th>
+              <tr>
+                <th colSpan={5}>
+                  <h2>Yo'l xaqi uchun xarajatlar</h2>
+                </th>
+              </tr>
             </thead>
             <tbody>
               {allData?.expenses
@@ -247,9 +253,11 @@ console.log(allData);
             </tbody>
 
             <thead>
-              <th colSpan={5}>
-                <h2>Zavod oziq ovqati uchun </h2>
-              </th>
+              <tr>
+                <th colSpan={5}>
+                  <h2>Zavod oziq ovqati uchun </h2>
+                </th>
+              </tr>
             </thead>
             <tbody>
               {allData?.expenses
@@ -273,9 +281,11 @@ console.log(allData);
               </tr>
             </tbody>
             <thead>
-              <th colSpan={5}>
-                <h2>Tashqi xarajatlar uchun </h2>
-              </th>
+              <tr>
+                <th colSpan={5}>
+                  <h2>Tashqi xarajatlar uchun </h2>
+                </th>
+              </tr>
             </thead>
             <tbody>
               {allData?.expenses
@@ -299,9 +309,11 @@ console.log(allData);
               </tr>
             </tbody>
             <thead>
-              <th colSpan={5}>
-                <h2>Jami kirim</h2>
-              </th>
+              <tr>
+                <th colSpan={5}>
+                  <h2>Jami kirim</h2>
+                </th>
+              </tr>
             </thead>
             <tbody>
               <tr>
@@ -311,9 +323,11 @@ console.log(allData);
               </tr>
             </tbody>
             <thead>
-              <th colSpan={5}>
-                <h2>Jami Chiqim</h2>
-              </th>
+              <tr>
+                <th colSpan={5}>
+                  <h2>Jami Chiqim</h2>
+                </th>
+              </tr>
             </thead>
             <tbody>
               <tr>
