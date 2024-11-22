@@ -94,7 +94,7 @@ console.log(allData);
                       <td>{item.name}</td>
                       <td>{item.type}</td>
                       <td>{item.currency == "sum" ? item.amount : 0} сум</td>
-                      <td>{item.currency == "dollar" ? item.amount : 0}</td>
+                      <td>{item.currency == "dollar" ? item.amount : 0} $</td>
                     </tr>
                   );
                 })}
