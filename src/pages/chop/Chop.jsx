@@ -355,6 +355,18 @@ console.log(allData);
                 <td>{allData?.total_money_sum_other_expenses} сум</td>
                 <td>{allData?.total_money_dollar_other_expenses} $</td>
               </tr>
+              <tr>
+                <td colSpan={3}>Jami chiqim</td>
+                <td>{allData?.finally_sum_expenses} сум</td>
+                <td>{allData?.finally_dollar_expenses} $</td>
+              </tr>
+              <tr>
+                <td colSpan={3}>
+                  <h3>Kassa topshirdi</h3>
+                </td>
+                <td>{allData?.finally_sum_benefit} сум</td>
+                <td>{allData?.finally_dollar_benefit} $</td>
+              </tr>
             </tbody>
           </table>
           <button
