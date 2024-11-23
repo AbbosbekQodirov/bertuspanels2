@@ -276,6 +276,8 @@ function Home({
         />
       )}
       <div className="container">
+
+        
         <nav>
           <div className="mainLogo">
             <img src="/imgs/mainlogo.png" alt="" />

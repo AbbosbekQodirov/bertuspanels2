@@ -9,32 +9,38 @@ function AddWorker({ changedData, setChangedData, setShowAddWorker }) {
   const [fixed, setfixed] = useState("");
   const [part, setpart] = useState("office");
   const addData = () => {
-    const myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("Authorization", `Bearer ${getToken()}`);
 
-    const raw = JSON.stringify({
-      name,
-      workdays,
-      fixed,
-      part,
-    });
+    if (/[a-zA-Z]/.test(fixed)) {
+      toast.error("Oylikda harf aralashmasligi kerak")
+    } else {
+       const myHeaders = new Headers();
+       myHeaders.append("Content-Type", "application/json");
+       myHeaders.append("Authorization", `Bearer ${getToken()}`);
 
-    const requestOptions = {
-      method: "POST",
-      headers: myHeaders,
-      body: raw,
-      redirect: "follow",
-    };
+       const raw = JSON.stringify({
+         name,
+         workdays,
+         fixed,
+         part,
+       });
 
-    fetch(`${baseUrl}/workers/create`, requestOptions)
-      .then((response) => response.json())
-      .then((result) => {
-        toast.success("Амалиёт муваффақиятли амалга оширилди");
-        setShowAddWorker(false);
-        setChangedData(!changedData)
-      })
-      .catch((error) => console.error(error));
+       const requestOptions = {
+         method: "POST",
+         headers: myHeaders,
+         body: raw,
+         redirect: "follow",
+       };
+
+       fetch(`${baseUrl}/workers/create`, requestOptions)
+         .then((response) => response.json())
+         .then((result) => {
+           toast.success("Амалиёт муваффақиятли амалга оширилди");
+           setShowAddWorker(false);
+           setChangedData(!changedData);
+         })
+         .catch((error) => console.error(error.message));
+    }
+   
   };
 
   const handleSubmit = (e) => {
@@ -74,7 +80,8 @@ function AddWorker({ changedData, setChangedData, setShowAddWorker }) {
             </label> */}
             <label htmlFor="">
               {" "}
-              <input required 
+              <input
+                required
                 onChange={(e) => {
                   setname(e.target.value);
                 }}
@@ -92,9 +99,11 @@ function AddWorker({ changedData, setChangedData, setShowAddWorker }) {
           </div>
           <div>
             <label htmlFor="">
-              <input required 
+              <input
+                required
+                value={fixed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}
                 onChange={(e) => {
-                  setfixed(e.target.value);
+                  setfixed(e.target.value.toString().replaceAll(" ", ""));
                 }}
                 placeholder="Фикса ойлик: "
                 type="text"
@@ -102,7 +111,8 @@ function AddWorker({ changedData, setChangedData, setShowAddWorker }) {
               УЗС
             </label>
             <label htmlFor="">
-              <input required 
+              <input
+                required
                 onChange={(e) => {
                   setworkdays(e.target.value);
                 }}
