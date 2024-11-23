@@ -7,7 +7,7 @@ function AddWorker({ changedData, setChangedData, setShowAddWorker }) {
   const [name, setname] = useState("");
   const [workdays, setworkdays] = useState("");
   const [fixed, setfixed] = useState("");
-  const [part, setpart] = useState("");
+  const [part, setpart] = useState("office");
   const addData = () => {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
