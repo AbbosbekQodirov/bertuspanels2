@@ -39,7 +39,6 @@ function Routers() {
       navigate("/login");
     } else {
       // navigate("/");
-
       getCourse();
     }
   }, [inSystem]);

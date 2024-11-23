@@ -9,45 +9,48 @@ function AddWorker({ changedData, setChangedData, setShowAddWorker }) {
   const [fixed, setfixed] = useState("");
   const [part, setpart] = useState("office");
   const addData = () => {
-
     if (/[a-zA-Z]/.test(fixed)) {
-      toast.error("Oylikda harf aralashmasligi kerak")
+      toast.error("Oylikda harf aralashmasligi kerak");
     } else {
-       const myHeaders = new Headers();
-       myHeaders.append("Content-Type", "application/json");
-       myHeaders.append("Authorization", `Bearer ${getToken()}`);
+      const myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+      myHeaders.append("Authorization", `Bearer ${getToken()}`);
 
-       const raw = JSON.stringify({
-         name,
-         workdays,
-         fixed,
-         part,
-       });
+      const raw = JSON.stringify({
+        name,
+        workdays,
+        fixed,
+        part,
+      });
 
-       const requestOptions = {
-         method: "POST",
-         headers: myHeaders,
-         body: raw,
-         redirect: "follow",
-       };
+      const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow",
+      };
 
-       fetch(`${baseUrl}/workers/create`, requestOptions)
-         .then((response) => response.json())
-         .then((result) => {
-           toast.success("Амалиёт муваффақиятли амалга оширилди");
-           setShowAddWorker(false);
-           setChangedData(!changedData);
-         })
-         .catch((error) => console.error(error.message));
+      fetch(`${baseUrl}/workers/create`, requestOptions)
+        .then((response) => response.json())
+        .then((result) => {
+          if (result.detail == "Amaliyot muvaffaqiyatli amalga oshirildi") {
+            toast.success(result.detail);
+            setShowAddWorker(false);
+            setChangedData(!changedData);
+          }else{
+            toast.error(result.detail);
+            
+          }
+        })
+        .catch((error) => console.error(error.message));
     }
-   
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     addData();
   };
-  
+
   return (
     <div className="addWorker">
       <div className="addForm">
