@@ -4,15 +4,17 @@ import { saveAs } from "file-saver";
 import { getToken } from "../../service/token";
 import { baseUrl } from "../../config";
 
-const Chop = () => {
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
 
-    const getCurrentDate = () => {
-      const today = new Date();
-      const year = today.getFullYear();
-      const month = String(today.getMonth() + 1).padStart(2, "0"); // Oylarni 0-dan boshlab hisoblaydi
-      const day = String(today.getDate()).padStart(2, "0"); // Kunni 2 xonali formatga keltiradi
-      return `${year}-${month}-${day}`;
-    };
+const Chop = () => {
+  const getCurrentDate = () => {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, "0"); // Oylarni 0-dan boshlab hisoblaydi
+    const day = String(today.getDate()).padStart(2, "0"); // Kunni 2 xonali formatga keltiradi
+    return `${year}-${month}-${day}`;
+  };
 
   const [allData, setAllData] = useState(null);
   // Excel faylga eksport qilish funksiyasi
@@ -50,12 +52,42 @@ const Chop = () => {
     getAllData();
   }, []);
 
-console.log(allData);
+  const pdfWidth = 210; // A4 kengligi millimetrda
+  const pdfHeight = 297; // A4 balandligi millimetrda
 
-  
+  const handleDownloadPDF = () => {
+    const input = document.getElementById("pdf-content");
+
+    html2canvas(input, { scale: 2 }).then((canvas) => {
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF("p", "mm", "a4"); // A4 format
+
+      const pdfWidth = 210; // A4 kengligi (mm)
+      const pdfHeight = 297; // A4 balandligi (mm)
+      const imgWidth = pdfWidth;
+      const imgHeight = (canvas.height * pdfWidth) / canvas.width;
+
+      let heightLeft = imgHeight; // Rasm balandligi
+      let position = 0;
+
+      // Birinchi sahifani qo'shish
+      pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
+      heightLeft -= pdfHeight;
+
+      // Agar rasm balandligi PDF sahifasidan oshsa, yangi sahifa qo'shamiz
+      while (heightLeft > 0) {
+        position -= pdfHeight; // Yangi sahifaga o'tish
+        pdf.addPage();
+        pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
+        heightLeft -= pdfHeight;
+      }
+
+      pdf.save("sahifa.pdf");
+    });
+  };
 
   return (
-    <div className="container" style={{ padding: "20px" }}>
+    <div id="pdf-content" className="container" style={{ padding: "20px" }}>
       {allData && (
         <>
           <h2>Ma'lumotlar Jadvali</h2>
@@ -370,7 +402,7 @@ console.log(allData);
             </tbody>
           </table>
           <button
-            onClick={exportToExcel}
+            onClick={handleDownloadPDF}
             style={{
               marginTop: "20px",
               padding: "10px 20px",
@@ -384,6 +416,7 @@ console.log(allData);
           </button>
         </>
       )}
+     
     </div>
   );
 };
