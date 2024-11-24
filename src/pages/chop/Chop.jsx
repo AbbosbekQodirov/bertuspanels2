@@ -3,6 +3,7 @@ import * as XLSX from "xlsx";
 import { saveAs } from "file-saver";
 import { getToken } from "../../service/token";
 import { baseUrl } from "../../config";
+import "./Chop.css";
 
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
@@ -86,318 +87,475 @@ const Chop = () => {
     });
   };
 
+  console.log(allData);
+
   return (
     <div id="pdf-content" className="container" style={{ padding: "20px" }}>
       {allData && (
         <>
-          <h2>Ma'lumotlar Jadvali</h2>
+          <h2>Маълумотлар Жадвали</h2>
           <table
             id="table-to-export"
             border="1"
             style={{ borderCollapse: "collapse", width: "100%" }}
           >
             <thead>
-              <tr>
+              <tr className="inComeTr">
                 <th colSpan={5}>
-                  <h1>Kirim</h1>
+                  <h1>Кирим</h1>
                 </th>
               </tr>
-              <tr>
+              <tr className="titleTr">
                 <th colSpan={5}>
                   {" "}
-                  <h2>Sandvich</h2>
+                  <h2>Сандвич</h2>
                 </th>
               </tr>
-              <tr>
+              <tr className="titleTr">
                 <th>No</th>
-                <th>Ismi</th>
-                <th>Maxsulot</th>
-                <th>O'zbekiston so'mi</th>
-                <th>Dollar</th>
+                <th>Исми </th>
+                <th>Махсулот </th>
+                <th>Ўзбекистон сўми</th>
+                <th>Доллар</th>
               </tr>
             </thead>
             <tbody>
-              {allData?.incomes
-                ?.filter((item) => item.type === "sandwich")
-                .map((item, index) => {
-                  return (
-                    <tr>
-                      <td>{(index += 1)}</td>
-                      <td>{item.name}</td>
-                      <td>{item.type}</td>
-                      <td>{item.currency == "sum" ? item.amount : 0} сум</td>
-                      <td>{item.currency == "dollar" ? item.amount : 0} $</td>
-                    </tr>
-                  );
-                })}
+              {allData?.incomes?.filter((item) => item.type === "sandwich")
+                .length > 0 ? (
+                allData?.incomes
+                  ?.filter((item) => item.type === "sandwich")
+                  .map((item, index) => {
+                    return (
+                      <tr>
+                        <td>{(index += 1)}</td>
+                        <td>{item.name}</td>
+                        <td>{item.type}</td>
+                        <td>{item.currency == "sum" ? item.amount : 0} сум</td>
+                        <td>{item.currency == "dollar" ? item.amount : 0} $</td>
+                      </tr>
+                    );
+                  })
+              ) : (
+                <tr>
+                  <td>0</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              )}
             </tbody>
             <thead>
-              <tr>
+              <tr className="titleTr">
                 <th colSpan={5}>
                   {" "}
-                  <h2>Penoplast</h2>
+                  <h2>Пенопласт</h2>
                   <h2></h2>
                 </th>
               </tr>
             </thead>
             <tbody>
-              {allData?.incomes
-                ?.filter((item) => item.type === "pena")
-                .map((item, index) => {
-                  return (
-                    <tr>
-                      <td>{(index += 1)}</td>
-                      <td>{item.name}</td>
-                      <td>{item.type}</td>
-                      <td>{item.currency == "sum" ? item.amount : 0} сум</td>
-                      <td>{item.currency == "dollar" ? item.amount : 0} $</td>
-                    </tr>
-                  );
-                })}
+              {allData?.incomes?.filter((item) => item.type === "pena").length >
+              0 ? (
+                allData?.incomes
+                  ?.filter((item) => item.type === "pena")
+                  .map((item, index) => {
+                    return (
+                      <tr>
+                        <td>{(index += 1)}</td>
+                        <td>{item.name}</td>
+                        <td>{item.type}</td>
+                        <td>{item.currency == "sum" ? item.amount : 0} сум</td>
+                        <td>{item.currency == "dollar" ? item.amount : 0} $</td>
+                      </tr>
+                    );
+                  })
+              ) : (
+                <tr>
+                  <td>0</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              )}
             </tbody>
             <thead>
-              <tr>
+              <tr className="titleTr">
                 <th colSpan={5}>
-                  <h2>Boshqa</h2>
+                  <h2>Бошқа</h2>
                 </th>
               </tr>
             </thead>
             <tbody>
-              {allData?.incomes
-                ?.filter((item) => item.type === "other")
-                .map((item, index) => {
-                  return (
-                    <tr>
-                      <td>{(index += 1)}</td>
-                      <td>{item.name}</td>
-                      <td>{item.type}</td>
-                      <td>{item.currency == "sum" ? item.amount : 0} сум</td>
-                      <td>{item.currency == "dollar" ? item.amount : 0} $</td>
-                    </tr>
-                  );
-                })}
-              <tr>
+              {allData?.incomes?.filter((item) => item.type === "other")
+                .length > 0 ? (
+                allData?.incomes
+                  ?.filter((item) => item.type === "other")
+                  .map((item, index) => {
+                    return (
+                      <tr>
+                        <td>{(index += 1)}</td>
+                        <td>{item.name}</td>
+                        <td>{item.type}</td>
+                        <td>{item.currency == "sum" ? item.amount : 0} сум</td>
+                        <td>{item.currency == "dollar" ? item.amount : 0} $</td>
+                      </tr>
+                    );
+                  })
+              ) : (
+                <tr>
+                  <td>0</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              )}
+              {/* <tr>
                 <th colSpan={3}>Hammasi:</th>
                 <th>{allData?.finally_sum_incomes} сум</th>
                 <th>{allData?.finally_dollar_incomes} $</th>
-              </tr>
+              </tr> */}
             </tbody>
 
             <thead>
-              <tr>
+              <tr className="outComeTr">
                 <th colSpan={5}>
-                  <h1>CHIQIM</h1>
+                  <h1>ЧИҚИМ</h1>
                 </th>
               </tr>
-              <tr>
-                <th colSpan={5}>
-                  <h2>Avans uchun</h2>
-                </th>
-              </tr>
-              <tr>
+
+              <tr className="titleTr">
                 <th>No</th>
-                <th>Mijoz ismi</th>
-                <th>Izox</th>
-                <th>O'zbekiston so'mi</th>
+                <th>Мижоз Исми </th>
+                <th>Изох </th>
+                <th>Ўзбекистон сўми</th>
                 <th>Dollar</th>
+              </tr>
+              <tr className="titleTr">
+                <th colSpan={5}>
+                  <h2>Aванс учун</h2>
+                </th>
               </tr>
             </thead>
             <tbody>
-              {allData?.salaries?.map((item, index) => {
-                return (
-                  <tr>
-                    <td>{(index += 1)}</td>
-                    <td>{item.worker_name}</td>
-                    <td>{item.comment}</td>
-                    <td>{item.currency == "sum" ? item.amount : 0} сум</td>
-                    <td>{item.currency == "dollar" ? item.amount : 0} $</td>
-                  </tr>
-                );
-              })}
-              <tr>
+              {allData?.salaries.length > 0 ? (
+                allData?.salaries.map((item, index) => {
+                  return (
+                    <tr>
+                      <td>{(index += 1)}</td>
+                      <td>{item.worker_name}</td>
+                      <td>{item.comment}</td>
+                      <td>{item.currency == "sum" ? item.amount : 0} сум</td>
+                      <td>{item.currency == "dollar" ? item.amount : 0} $</td>
+                    </tr>
+                  );
+                })
+              ) : (
+                <tr>
+                  <td>0</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              )}
+              {/* <tr>
                 <th colSpan={3}>Hammasi:</th>
                 <th>{allData?.total_money_sum_advance_salaries} сум</th>
                 <th>{allData?.total_money_dollar_advance_salaries} $</th>
-              </tr>
+              </tr> */}
             </tbody>
             <thead>
-              <tr>
+              <tr className="titleTr">
                 <th colSpan={5}>
-                  <h2>Doimiy xarajatlar</h2>
+                  <h2>Доимий харажатлар</h2>
                 </th>
-              </tr>
-              <tr>
-                <th>No</th>
-                <th>Mijoz ismi</th>
-                <th>Izox</th>
-                <th>O'zbekiston so'mi</th>
-                <th>Dollar</th>
               </tr>
             </thead>
             <tbody>
-              {allData?.expenses
-                ?.filter((item) => item.type === "usual")
-                .map((item, index) => {
-                  return (
-                    <tr>
-                      <td>{(index += 1)}</td>
-                      <td>{item.name}</td>
-                      <td>{item.comment}</td>
-                      <td>{item.currency == "sum" ? item.amount : 0} сум</td>
-                      <td>{item.currency == "dollar" ? item.amount : 0} $</td>
-                    </tr>
-                  );
-                })}
+              {allData?.expenses?.filter((item) => item.type === "usual")
+                .length > 0 ? (
+                allData?.expenses
+                  ?.filter((item) => item.type === "usual")
+                  .map((item, index) => {
+                    return (
+                      <tr>
+                        <td>{(index += 1)}</td>
+                        <td>{item.name}</td>
+                        <td>{item.comment}</td>
+                        <td>{item.currency == "sum" ? item.amount : 0} сум</td>
+                        <td>{item.currency == "dollar" ? item.amount : 0} $</td>
+                      </tr>
+                    );
+                  })
+              ) : (
+                <tr>
+                  <td>0</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              )}
 
-              <tr>
+              {/* <tr>
                 <th colSpan={3}>Hammasi:</th>
                 <th>{allData?.total_money_sum_usual_expenses} сум</th>
                 <th>{allData?.total_money_dollar_usual_expenses} $</th>
-              </tr>
+              </tr> */}
             </tbody>
             <thead>
-              <tr>
+              <tr className="titleTr">
                 <th colSpan={5}>
-                  <h2>Yo'l xaqi uchun xarajatlar</h2>
+                  <h2>Йўл хақи учун харажатлар</h2>
                 </th>
               </tr>
             </thead>
             <tbody>
-              {allData?.expenses
-                ?.filter((item) => item.type === "toll")
-                .map((item, index) => {
-                  return (
-                    <tr>
-                      <td>{(index += 1)}</td>
-                      <td>{item.name}</td>
-                      <td>{item.comment}</td>
-                      <td>{item.currency == "sum" ? item.amount : 0} сум</td>
-                      <td>{item.currency == "dollar" ? item.amount : 0} $</td>
-                    </tr>
-                  );
-                })}
+              {allData?.expenses?.filter((item) => item.type === "toll")
+                .length > 0 ? (
+                allData?.expenses
+                  ?.filter((item) => item.type === "toll")
+                  .map((item, index) => {
+                    return (
+                      <tr>
+                        <td>{(index += 1)}</td>
+                        <td>{item.name}</td>
+                        <td>{item.comment}</td>
+                        <td>{item.currency == "sum" ? item.amount : 0} сум</td>
+                        <td>{item.currency == "dollar" ? item.amount : 0} $</td>
+                      </tr>
+                    );
+                  })
+              ) : (
+                <tr>
+                  <td>0</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              )}
 
-              <tr>
+              {/* <tr>
                 <th colSpan={3}>Hammasi:</th>
                 <th>{allData?.total_money_sum_toll_expenses} сум</th>
                 <th>{allData?.total_money_dollar_toll_expenses} $</th>
-              </tr>
+              </tr> */}
             </tbody>
 
             <thead>
-              <tr>
+              <tr className="titleTr">
                 <th colSpan={5}>
-                  <h2>Zavod oziq ovqati uchun </h2>
+                  <h2>Завод озиқ овқати учун </h2>
                 </th>
               </tr>
             </thead>
             <tbody>
-              {allData?.expenses
-                ?.filter((item) => item.type === "food")
-                .map((item, index) => {
-                  return (
-                    <tr>
-                      <td>{(index += 1)}</td>
-                      <td>{item.name}</td>
-                      <td>{item.comment}</td>
-                      <td>{item.currency == "sum" ? item.amount : 0} сум</td>
-                      <td>{item.currency == "dollar" ? item.amount : 0} $</td>
-                    </tr>
-                  );
-                })}
+              {allData?.expenses?.filter((item) => item.type === "food")
+                .length > 0 ? (
+                allData?.expenses
+                  ?.filter((item) => item.type === "food")
+                  .map((item, index) => {
+                    return (
+                      <tr>
+                        <td>{(index += 1)}</td>
+                        <td>{item.name}</td>
+                        <td>{item.comment}</td>
+                        <td>{item.currency == "sum" ? item.amount : 0} сум</td>
+                        <td>{item.currency == "dollar" ? item.amount : 0} $</td>
+                      </tr>
+                    );
+                  })
+              ) : (
+                <tr>
+                  <td>0</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              )}
 
-              <tr>
+              {/* <tr>
                 <th colSpan={3}>Hammasi:</th>
                 <th>{allData?.total_money_sum_food_expenses} сум</th>
                 <th>{allData?.total_money_dollar_food_expenses} $</th>
-              </tr>
+              </tr> */}
             </tbody>
             <thead>
-              <tr>
+              <tr className="titleTr">
                 <th colSpan={5}>
-                  <h2>Tashqi xarajatlar uchun </h2>
+                  <h2>Ташқи харажатлар учун </h2>
                 </th>
               </tr>
             </thead>
             <tbody>
-              {allData?.expenses
-                ?.filter((item) => item.type === "other")
-                .map((item, index) => {
-                  return (
-                    <tr>
-                      <td>{(index += 1)}</td>
-                      <td>{item.name}</td>
-                      <td>{item.comment}</td>
-                      <td>{item.currency == "sum" ? item.amount : 0} сум</td>
-                      <td>{item.currency == "dollar" ? item.amount : 0} $</td>
-                    </tr>
-                  );
-                })}
+              {allData?.expenses?.filter((item) => item.type === "other")
+                .length > 0 ? (
+                allData?.expenses
+                  ?.filter((item) => item.type === "other")
+                  .map((item, index) => {
+                    return (
+                      <tr>
+                        <td>{(index += 1)}</td>
+                        <td>{item.name}</td>
+                        <td>{item.comment}</td>
+                        <td>{item.currency == "sum" ? item.amount : 0} сум</td>
+                        <td>{item.currency == "dollar" ? item.amount : 0} $</td>
+                      </tr>
+                    );
+                  })
+              ) : (
+                <tr>
+                  <td>0</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              )}
 
-              <tr>
+              {/* <tr>
                 <th colSpan={3}>Hammasi:</th>
                 <th>{allData?.total_money_sum_other_expenses} сум</th>
                 <th>{allData?.total_money_dollar_other_expenses} $</th>
-              </tr>
+              </tr> */}
             </tbody>
             <thead>
-              <tr>
-                <th colSpan={5}>
-                  <h2>Jami kirim</h2>
+              <tr className="inComeTr">
+                <th colSpan={3}>
+                  <h2>Жами Кирим</h2>
+                </th>
+                <th>
+                  <h2>{allData?.finally_sum_incomes} сум</h2>
+                </th>
+                <th>
+                  <h2>{allData?.finally_dollar_incomes} $</h2>
                 </th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th colSpan={3}>Hammasi:</th>
-                <th>{allData?.finally_sum_incomes} сум</th>
-                <th>{allData?.finally_dollar_incomes} $</th>
-              </tr>
-            </tbody>
-            <thead>
-              <tr>
-                <th colSpan={5}>
-                  <h2>Jami Chiqim</h2>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td colSpan={3}>Avans uchun chiqim</td>
-                <td>{allData?.finally_sum_salaries} сум</td>
-                <td>{allData?.finally_dollar_salaries} $</td>
-              </tr>
-              <tr>
-                <td colSpan={3}>Doimiy Harajatlar uchun chiqim</td>
-                <td>{allData?.total_money_sum_usual_expenses} сум</td>
-                <td>{allData?.total_money_dollar_usual_expenses} $</td>
-              </tr>
-              <tr>
-                <td colSpan={3}>Yo'l haqqi uchun</td>
-                <td>{allData?.total_money_sum_toll_expenses} сум</td>
-                <td>{allData?.total_money_dollar_toll_expenses} $</td>
-              </tr>
-              <tr>
-                <td colSpan={3}>Oziq ovqat uchun</td>
-                <td>{allData?.total_money_sum_food_expenses} сум</td>
-                <td>{allData?.total_money_dollar_food_expenses} $</td>
-              </tr>
-              <tr>
-                <td colSpan={3}>Tashqi Harajatlatar uchun</td>
-                <td>{allData?.total_money_sum_other_expenses} сум</td>
-                <td>{allData?.total_money_dollar_other_expenses} $</td>
-              </tr>
-              <tr>
-                <td colSpan={3}>Jami chiqim</td>
-                <td>{allData?.finally_sum_expenses} сум</td>
-                <td>{allData?.finally_dollar_expenses} $</td>
-              </tr>
-              <tr>
-                <td colSpan={3}>
-                  <h3>Kassa topshirdi</h3>
+              <tr className="text_right">
+                <td colSpan={3}>Sendwich:</td>
+                <td>
+                  {allData.total_money_sum_sandwich_incomes
+                    ? allData.total_money_sum_sandwich_incomes
+                    : "0"}{" "}
+                  сум
                 </td>
-                <td>{allData?.finally_sum_benefit} сум</td>
-                <td>{allData?.finally_dollar_benefit} $</td>
+                <td>
+                  {allData.total_money_dollar_sandwich_incomes
+                    ? allData.total_money_dollar_sandwich_incomes
+                    : "0"}{" "}
+                  $
+                </td>
+              </tr>
+              <tr className="text_right">
+                <td colSpan={3}>Пенопласт:</td>
+                <td>
+                  {allData.total_money_sum_pena_incomes
+                    ? allData.total_money_sum_pena_incomes
+                    : "0"}{" "}
+                  сум
+                </td>
+                <td>
+                  {allData.total_money_dollar_pena_incomes
+                    ? allData.total_money_dollar_pena_incomes
+                    : "0"}{" "}
+                  $
+                </td>
+              </tr>
+              <tr className="text_right">
+                <td colSpan={3}>Бошқа:</td>
+                <td>
+                  {allData.total_money_sum_other_incomes
+                    ? allData.total_money_sum_other_incomes
+                    : "0"}{" "}
+                  сум
+                </td>
+                <td>
+                  {allData.total_money_dollar_other_incomes
+                    ? allData.total_money_dollar_other_incomes
+                    : "0"}{" "}
+                  $
+                </td>
+              </tr>
+            </tbody>
+            <thead>
+              <tr className="outComeTr">
+                <th colSpan={3}>
+                  <h2>Жами Чиқим</h2>
+                </th>
+                <th>
+                  <h2>{allData?.finally_sum_expenses} сум</h2>
+                </th>
+                <th>
+                  <h2>{allData?.finally_dollar_expenses} $</h2>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="text_right" colSpan={3}>
+                  Aванс учун Чиқим
+                </td>
+                <td className="text_right">
+                  {allData?.finally_sum_salaries} сум
+                </td>
+                <td className="text_right">
+                  {allData?.finally_dollar_salaries} $
+                </td>
+              </tr>
+              <tr>
+                <td className="text_right" colSpan={3}>
+                  Доимий Ҳаражатлар учун Чиқим
+                </td>
+                <td className="text_right">
+                  {allData?.total_money_sum_usual_expenses} сум
+                </td>
+                <td className="text_right">
+                  {allData?.total_money_dollar_usual_expenses} $
+                </td>
+              </tr>
+              <tr>
+                <td className="text_right" colSpan={3}>
+                  Йўл ҳаққи учун
+                </td>
+                <td className="text_right">
+                  {allData?.total_money_sum_toll_expenses} сум
+                </td>
+                <td className="text_right">
+                  {allData?.total_money_dollar_toll_expenses} $
+                </td>
+              </tr>
+              <tr>
+                <td className="text_right" colSpan={3}>
+                  Озиқ овқат учун
+                </td>
+                <td className="text_right">
+                  {allData?.total_money_sum_food_expenses} сум
+                </td>
+                <td className="text_right">
+                  {allData?.total_money_dollar_food_expenses} $
+                </td>
+              </tr>
+              <tr>
+                <td className="text_right" colSpan={3}>
+                  Ташқи Ҳаражатлатар учун
+                </td>
+                <td className="text_right">
+                  {allData?.total_money_sum_other_expenses} сум
+                </td>
+                <td className="text_right">
+                  {allData?.total_money_dollar_other_expenses} $
+                </td>
+              </tr>
+
+              <tr className="titleTr">
+                <td className="text_left" colSpan={3}>
+                  <h3>Касса топширди</h3>
+                </td>
+                <td className="text_right">
+                  {allData?.finally_sum_benefit} сум
+                </td>
+                <td className="text_right">
+                  {allData?.finally_dollar_benefit} $
+                </td>
               </tr>
             </tbody>
           </table>
@@ -412,11 +570,10 @@ const Chop = () => {
               cursor: "pointer",
             }}
           >
-            Excel Faylga Yuklash
+            pdf файлни юклаш
           </button>
         </>
       )}
-     
     </div>
   );
 };

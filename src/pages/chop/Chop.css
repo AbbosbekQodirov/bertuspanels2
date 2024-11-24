@@ -1,0 +1,22 @@
+.inComeTr{
+    background-color: rgb(0, 206, 0);
+}
+.titleTr{
+    background-color: rgb(208, 208, 208);
+}
+table{
+    text-align: center;
+}
+
+.outComeTr{
+    background-color: red;
+    color: white;
+}
+
+.text_right{
+    text-align: right;
+}
+
+.text_left{
+    text-align: left;
+}
